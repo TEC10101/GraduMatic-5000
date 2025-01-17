@@ -51,6 +51,11 @@ namespace GraduMatic_5000
             Console.SetWindowSize(63, 26);
             Console.BufferHeight = 26;
             Console.BufferWidth = 63;
+            // To figure outh which voices are installed
+            //foreach (var voice in synth.GetInstalledVoices())
+            //{
+            //    Console.WriteLine(voice.VoiceInfo.Name);
+            //}
             Console.WriteLine("/############################################################\\");
             Thread.Sleep(15);
             Console.Beep(2000, 100);
@@ -151,6 +156,11 @@ namespace GraduMatic_5000
             }
             else if (riskInput.ToLower() == "bonus")
             {
+                gradumaticUIBonus();
+            }
+            else if (riskInput.ToLower() == "animeplot")
+            {
+                animePlot();
                 gradumaticUIBonus();
             }
             else if (riskInput.ToLower() == "no" || riskInput.ToLower() == "n")
@@ -901,9 +911,9 @@ namespace GraduMatic_5000
                 Thread.Sleep(1500);
                 Console.WriteLine("  I have a surprise for you.");
                 synth.Speak("I have a surprise for you.");
-                Console.WriteLine("Type \"star wars\", \"mission\", or \"mystery\" now or");
+                Console.WriteLine("Type \"star wars\", \"mission\", \"animeplot\", or \"mystery\" now or");
                 Console.WriteLine("when I introduce myself :)  Surprise Surprise!");
-                synth.SpeakAsync("Type star wars, mission, or mystery now or when I introduce myself!  Surprise surprise!");
+                synth.SpeakAsync("Type star wars, mission, anime plot, or mystery now or when I introduce myself!  Surprise surprise!");
                 Console.CursorVisible = true;
             }
             else if (finalGrade.ToLower() == "b")
@@ -933,6 +943,10 @@ namespace GraduMatic_5000
             {
                 missionImpossible();
             }
+            else if (end.ToLower() == "animeplot")
+            {
+                animePlot();
+            }
             else if (end.ToLower() == "mystery")
             {
                 mysteryMethod();
@@ -948,6 +962,54 @@ namespace GraduMatic_5000
                 //ex9();
             }
             else if (end.ToLower() == "no" || end.ToLower() == "n") { Environment.Exit(0); }
+        }
+
+        private static void animePlot()
+        {
+            using (SpeechSynthesizer synth = new SpeechSynthesizer())
+            {
+                synth.SelectVoice("Microsoft David Desktop");
+                synth.Speak("I got this new anime plot. Basically there's this high school girl except she's got HUGE boobs. I mean some serious " +
+                    "honkers, a real set of badonkers, packing some bobanhonkeros, massive dahongabangahos, big ol' tonhongracougers.");
+                synth.SelectVoice("Microsoft Zira Desktop");
+                synth.Speak("What happens next?!?");
+
+                synth.SelectVoice("Microsoft David Desktop");
+                synth.Speak("A transfer student shows up with EVEN BIGGER bonkhonagahoogs. HUMONGOUS hungolomghononoloughongous.");
+
+                synth.SelectVoice("Microsoft Zira Desktop");
+                synth.Speak("Then after that?");
+
+                synth.SelectVoice("Microsoft David Desktop");
+                synth.Speak("Our awkward male main character trips and falls face first into the transfer students MASSIVE knockers, then she SLAPS him and calls him a pervert.");
+
+                synth.SelectVoice("Microsoft Zira Desktop");
+                synth.Speak("Then what?");
+
+                synth.SelectVoice("Microsoft David Desktop");
+                synth.Speak("Ashamed, the boy runs into the street and gets HIT BY A TRUCK!");
+
+                synth.SelectVoice("Microsoft Zira Desktop");
+                synth.Speak("What a twist! Anything after that?");
+
+                synth.SelectVoice("Microsoft David Desktop");
+                synth.Speak("He wakes up in a new body in a fantasy world, and he's SURROUNDED by girls with EVEN LARGER hooters. Except one girl looks a lot younger but is actually THOUSANDS OF YEARS OLD!");
+
+                synth.SelectVoice("Microsoft Zira Desktop");
+                synth.Speak("That's crazy! What next?");
+
+                synth.SelectVoice("Microsoft David Desktop");
+                synth.Speak("He goes to the beach with all of the girls, because he is interested in the HOTTEST. Following a love triangle, the main character has a crush on the girl with the BIGGEST RACK. But THEN it turns out to be his sister!");
+
+                synth.SelectVoice("Microsoft Zira Desktop");
+                synth.Speak("Wowie wowie zowie!");
+
+                synth.SelectVoice("Microsoft David Desktop");
+                synth.Speak("Hold on, I have the perfect title for the anime; it will be called \"Now wait a minute, I was in high school, got hit by a truck, and now i'm in a fantasy world loved by girls with huge gazongas and my crush might be my sister??");
+
+                synth.SelectVoice("Microsoft Zira Desktop");
+                synth.Speak("That's perfect! PRINT!");
+            }
         }
 
         static string grader(int quiz, int midterm, int final, int quizMax, int midtermMax, int finalMax)
